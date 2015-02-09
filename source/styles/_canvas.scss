@@ -21,8 +21,7 @@ html {
 
 // AnkiMobile workaround: whitespace elements inside #qa normally
 // prevent flexbox from reaching the bottom of .card
-// TODO: try :empty
-#qa > :not(.row) {
+#qa > :empty {
   display: none;
 }
 
