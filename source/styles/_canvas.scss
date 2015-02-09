@@ -1,0 +1,35 @@
+/**
+Basic canvas setup.
+*/
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+.card,
+#qa {
+  margin: 0;
+
+  // We cannot set the height to 100% explicitly because we need
+  // the content to be able to overflow gracefully
+  min-height: 100%;
+}
+
+// AnkiMobile workaround: whitespace elements inside #qa normally
+// prevent flexbox from reaching the bottom of .card
+// TODO: try :empty
+#qa > :not(.row) {
+  display: none;
+}
+
+.card {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+
+  text-align: center;
+}

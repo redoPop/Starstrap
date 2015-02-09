@@ -1,0 +1,103 @@
+/**
+A primal CSS grid for Anki cards.
+
+Old Flexbox is used in these grids to ensure compatibility with the
+WebKit version used by PyQt for Anki Desktop.
+*/
+
+// To make sure the grid works both in previews (where there is
+// no #qa element) and in reviews (where the #qa element is
+// present) we style them both with flexbox, and also flex them
+// both to make sure #qa stretches itself to the container height
+// when placed inside .card
+.card,
+#qa {
+  display: -webkit-box;
+  -webkit-box-flex: 1;
+  -webkit-box-orient: vertical;
+}
+
+/**
+Centering grid items
+*/
+
+.col,
+.row {
+  display: -webkit-box;
+  -webkit-box-align: stretch;
+  -webkit-box-flex: 1;
+  -webkit-box-pack: center;
+}
+
+.col {
+  -webkit-box-align: center;
+
+  // Allow block elements to break lines
+  -webkit-box-orient: vertical;
+}
+
+/**
+Grid row sizes
+*/
+
+// Halves
+.row:only-of-type.row-1-2 {
+  height: 50%;
+}
+
+// Thirds
+.row:only-of-type.row-1-3 {
+  height: 33.33%;
+}
+.row-2-3 {
+  -webkit-box-flex: 2;
+}
+.row:only-of-type.row-2-3 {
+  height: 66.66%;
+}
+
+// Row-only-of-type
+.row:only-of-type {
+  height: 100%;
+  -webkit-box-flex: 0;
+
+  // Workaround for spec'd CSS limitation: you cannot set a %
+  // height inside a min-height'd element UNLESS that child is
+  // absolutely positioned.
+  // It's in the spec because of reasons.
+  position: absolute;
+  width: 100%;
+}
+
+/**
+Grid column sizes
+*/
+
+// Halves
+.col-1-2 {
+  width: 50%;
+}
+
+// Thirds
+.col-1-3 {
+  width: 33.33%;
+}
+.col-2-3 {
+  width: 66.66%;
+}
+
+/**
+Grid spacing
+*/
+
+.col .col {
+  padding: 10px;
+}
+
+.col ~ .col {
+  margin-left: 2px;
+}
+
+.row ~ .row .col {
+  margin-top: 2px;
+}
