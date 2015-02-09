@@ -37,60 +37,18 @@ Centering grid items
 }
 
 /**
-Grid row sizes
+Grid col/row sizes
 */
 
-// Halves
-.row:only-of-type.row-1-2 {
-  height: 50%;
-}
-
-// Thirds
-.row:only-of-type.row-1-3 {
-  height: 33.33%;
-}
-.row-2-3 {
+.big {
   -webkit-box-flex: 2;
-}
-.row:only-of-type.row-2-3 {
-  height: 66.66%;
-}
-
-// Row-only-of-type
-.row:only-of-type {
-  height: 100%;
-  -webkit-box-flex: 0;
-
-  // Workaround for spec'd CSS limitation: you cannot set a %
-  // height inside a min-height'd element UNLESS that child is
-  // absolutely positioned.
-  // It's in the spec because of reasons.
-  position: absolute;
-  width: 100%;
-}
-
-/**
-Grid column sizes
-*/
-
-// Halves
-.col-1-2 {
-  width: 50%;
-}
-
-// Thirds
-.col-1-3 {
-  width: 33.33%;
-}
-.col-2-3 {
-  width: 66.66%;
 }
 
 /**
 Grid spacing
 */
 
-.col .col {
+.col {
   padding: 10px;
 }
 

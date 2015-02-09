@@ -8,11 +8,13 @@ This is very much a **work in progress**, but the gist of it is that you can cop
 
 ## Grid system
 
-The grid system allows you to divide your cards evenly into halves and thirds, both vertically and horizontally.
+The grid system allows you to divide your card templates evenly, vertically and horizontally.
 
 Vertical divisions are called "rows" and are given a `row` class.
 
-Horizontal divisions are called "cols" and are given a `col` class. Cols should only ever be placed _directly inside_ rows.
+Horizontal divisions are called "cols" and are given a `col` class.
+
+Cols should only ever be placed _directly inside_ rows.
 
     <div class="row">
       <div class="col">
@@ -22,26 +24,24 @@ Horizontal divisions are called "cols" and are given a `col` class. Cols should 
 
 ### Row and column sizing
 
-Additional classes can be added to rows and cols to specify their size. Size classes are expressed as fractions following the pattern `{row|col}-{numerator}-{denominator}`.
+By default, rows and cols will automatically spread their widths/heights evenly according to their content and the dimensions of the card face.
 
-For example, `row-1-2` would be a row that takes up half of the vertical space; `row-2-3` would be a row that takes up two thirds of the vertical space; `col-1-2` would be a col that takes up half of the horizontal space.
-
-These classes should be paired _alongside_ the default `row`/`col` class.
+You can also add the class `big` to a row or col to have it take up twice the amount of its default space.
 
 Example:
 
-    <div class="row row-1-3">
+    <div class="row">
       <div class="col">
         (Content)
       </div>
     </div>
 
-    <div class="row row-2-3">
-      <div class="col col-1-2">
+    <div class="row big">
+      <div class="col">
         (Content)
       </div>
 
-      <div class="col col-1-2">
+      <div class="col">
         (Content)
       </div>
     </div>
@@ -52,11 +52,11 @@ The above grid consists of two rows: the first takes up one third of the card's 
 
 ### Ribbons
 
-The ribbon class should be used with a header element as the very fist thing inside a template. It is intended as a means of providing contextual information about a card when necessary, e.g. for decks that contain multiple note types.
+Ribbons contain contextual information about a card, e.g. for decks that contain multiple note types.
+
+An element with the `ribbon` class should be the very fist thing inside a template.
 
     <header class="ribbon">My Card</header>
-
-Ribbons should be used very sparingly.
 
 ## Colors
 
