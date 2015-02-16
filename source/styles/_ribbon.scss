@@ -2,8 +2,6 @@
 Ribbon for contextual details about a card.
 */
 
-$ribbon-height: 18px;
-
 .ribbon {
   background: rgba(50, 50, 50, 0.4);
   color: white;
@@ -18,13 +16,7 @@ $ribbon-height: 18px;
   text-overflow: ellipsis;
   white-space: nowrap;
 
-  line-height: $ribbon-height;
+  line-height: 18px;
   width: 100%;
   -webkit-box-flex: 0;
-
-  margin-bottom: 0 - $ribbon-height;
-}
-
-.ribbon + .row {
-  padding-top: $ribbon-height;
 }
