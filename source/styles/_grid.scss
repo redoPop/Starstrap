@@ -34,10 +34,13 @@ Centering grid items
 
   // Allow block elements to break lines
   -webkit-box-orient: vertical;
+
+  // Forces consistent width for row columns
+  width: 50%;
 }
 
 /**
-Grid col/row sizes
+Grid row sizes
 */
 
 .big {

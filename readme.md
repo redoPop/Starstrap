@@ -12,9 +12,7 @@ The grid system allows you to divide your card templates evenly, vertically and 
 
 Vertical divisions are called "rows" and are given a `row` class.
 
-Horizontal divisions are called "cols" and are given a `col` class.
-
-Cols should only ever be placed _directly inside_ rows.
+Horizontal divisions are called "cols" and are given a `col` class. Cols should only ever be placed _directly inside_ rows.
 
     <div class="row">
       <div class="col">
@@ -26,7 +24,7 @@ Cols should only ever be placed _directly inside_ rows.
 
 By default, rows and cols will automatically spread their widths/heights evenly according to their content and the dimensions of the card face.
 
-You can also add the class `big` to a row or col to have it take up twice the amount of its default space.
+You can also add the class `big` to a row to have it take up twice the amount of its default space.
 
 Example:
 
@@ -54,8 +52,6 @@ The above grid consists of two rows: the first takes up one third of the card's 
 
 Ribbons contain contextual information about a card, e.g. for decks that contain multiple note types.
 
-An element with the `ribbon` class should be the very fist thing inside a template.
-
     <header class="ribbon">My Card</header>
 
 ## Colors
@@ -80,7 +76,7 @@ Front template:
 
     <header class="ribbon">Kanji</header>
 
-    <div class="row row-1-2">
+    <div class="row">
       <div class="col" style="font-size:60px;">
         {{Kanji}}
       </div>
@@ -90,12 +86,12 @@ Back template:
 
     {{FrontSide}}
 
-    <div class="row row-1-2">
-      <div class="col col-1-2 bg-tint">
+    <div class="row">
+      <div class="col bg-tint">
         ({{Meaning}})
       </div>
 
-      <div class="col col-1-2 bg-tint">
+      <div class="col bg-tint">
         {{On'yomi}}
         <br>
         {{Kun'yomi}}
