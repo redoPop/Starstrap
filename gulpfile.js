@@ -1,23 +1,19 @@
-/* jshint node:true */
+import gulp from 'gulp';
+import cleanCSS from 'gulp-clean-css';
+import inject from 'gulp-inject';
+import sass from 'gulp-sass';
 
-'use strict';
-
-var gulp            = require('gulp');
-
-var autoprefixer    = require('gulp-autoprefixer');
-var minifyCSS       = require('gulp-minify-css');
-var sass            = require('gulp-sass');
-
-gulp.task('styles', function () {
-  return gulp.src('source/styles/*.scss')
+const source = () => (
+  gulp.src('source/styles/*.scss')
     .pipe(sass())
-    .pipe(autoprefixer({
-      browsers: ['last 3 versions']
-    }))
-    .pipe(minifyCSS())
-    .pipe(gulp.dest('dist'));
-});
+    .pipe(cleanCSS())
+);
 
-gulp.task('build', ['styles']);
+const mdCSS = css => `\`\`\`css\n${css}\n\`\`\``;
+const transform = (_, file) => mdCSS(String(file.contents));
 
-gulp.task('default', ['build']);
+gulp.task('default', () => (
+  gulp.src('README.md')
+    .pipe(inject(source(), { transform }))
+    .pipe(gulp.dest('./'))
+));
