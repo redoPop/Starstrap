@@ -1,7 +1,10 @@
 import gulp from 'gulp';
 import cleanCSS from 'gulp-clean-css';
 import inject from 'gulp-inject';
-import sass from 'gulp-sass';
+import makeSass from 'gulp-sass';
+import sassCompiler from 'sass';
+
+const sass = makeSass(sassCompiler);
 
 const source = () => (
   gulp.src('source/styles/*.scss')
